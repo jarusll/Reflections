@@ -17,7 +17,8 @@
  */
 
 using Soup;
-using Requests;
+using IGDB;
+using Json;
 
 namespace Reflections {
 
@@ -30,19 +31,14 @@ namespace Reflections {
         private unowned Gtk.Button open_button;
 
         public Window (Gtk.Application app) {
-            	Session session = new Session ();
-
-	            // Send a request:
-	            //Soup.Message msg = new Soup.Message ("GET", "https://jsonplaceholder.typicode.com/todos/1");
-	            //session.send_message (msg);
-
-                var response = new Call()
-                    .get("https://jsonplaceholder.typicode.com/todos/1")
-                    .make();
-                //print ("Data: \n%s\n", (string) msg.response_body.data);
-                print ("Data: \n%s\n", (string) response.response_body.data);
-
-                Object (application: app);
+                //var games = new Client().search("game", "fields *; limit 1");
+                //print ("Data: \n%s\n", (string) games);
+                var jsonString = @"{\"hello\": \"world\"}";
+                var parser = new Parser();
+                parser.load_from_data(jsonString);
+                var root = parser.get_root().get_object ();
+                message((string)root.get_string_member("hello"));
+                GLib.Object (application: app);
         }
     }
 }

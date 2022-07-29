@@ -2,12 +2,13 @@ reflections_sources = [
   'main.vala',
   'window.vala',
   'application.vala',
-  'requests.vala'
+  'igdb.vala'
 ]
 
 reflections_deps = [
   dependency('libadwaita-1', version: '>= 1.0'),
-  dependency('libsoup-2.4'),
+  dependency('libsoup-3.0'),
+  dependency('json-glib-1.0'),
 ]
 
 gnome = import('gnome')
