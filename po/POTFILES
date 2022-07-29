@@ -1,0 +1,7 @@
+data/com.jarusll.reflections.desktop.in
+data/com.jarusll.reflections.appdata.xml.in
+data/com.jarusll.reflections.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
