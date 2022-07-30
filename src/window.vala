@@ -31,14 +31,14 @@ namespace Reflections {
         private unowned Gtk.Button open_button;
 
         public Window (Gtk.Application app) {
-                //var games = new Client().search("game", "fields *; limit 1");
-                //print ("Data: \n%s\n", (string) games);
-                var jsonString = @"{\"hello\": \"world\"}";
-                var parser = new Parser();
-                parser.load_from_data(jsonString);
-                var root = parser.get_root().get_object ();
-                message((string)root.get_string_member("hello"));
-                GLib.Object (application: app);
+            var games = new Client().search("game", "fields *; limit 1");
+            print ("Data: \n%s\n", (string) games);
+            var jsonString = @"{\"hello\": \"world\"}";
+            var parser = new Parser();
+            parser.load_from_data(jsonString);
+            var root = parser.get_root().get_object ();
+            message((string)root.get_string_member("hello"));
+            GLib.Object (application: app);
         }
     }
 }
